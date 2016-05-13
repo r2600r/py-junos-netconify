@@ -115,8 +115,9 @@ class Terminal(object):
     cleanly logout of the TTY
     """
     self.notify('TTY', 'logging out ...')
-    self.nc.close()
-    self._logout_state_machine()
+    self._tty_close()
+    #self.nc.close()
+    #self._logout_state_machine()
     return True
 
   # -----------------------------------------------------------------------
