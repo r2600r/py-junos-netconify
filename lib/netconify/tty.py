@@ -169,6 +169,11 @@ class Terminal(object):
         self.notify('DEBUG:login', "IN:{0}:`{1}`".format(found, prompt))
         self.notify('DEBUG:password', "{0}".format(self.passwd))
         self.notify('DEBUG:attempt', "{0}".format(attempt))
+    if cmdo.verbose == 3:
+        self.notify('\nDEBUG:current state', "{0}".format(self.state))
+        self.notify('DEBUG:login', "IN:{0}:`{1}`".format(found, prompt))
+        self.notify('DEBUG:password', "{0}".format(self.passwd))
+        self.notify('DEBUG:attempt', "{0}".format(attempt))
 
     def _ev_loader():
       self.state = self._ST_LOADER
@@ -207,8 +212,8 @@ class Terminal(object):
         self.write('<close-session/>')    #@@@ this is a hack
         # if console connection have a banner or warning
         # comment-out line above and uncoment lines bellow ... better hack
-        #sleep(5)
-        #self.write('\n')
+        sleep(5)
+        self.write('\n')
 
     def _ev_shell():
       if self.state == self._ST_INIT:
