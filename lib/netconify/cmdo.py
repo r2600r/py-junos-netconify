@@ -76,7 +76,7 @@ class netconifyCmdo(object):
 
         p.add_argument('--verbose',
                         type=int, default=0,
-                        help="increase verbose levevel: 0 = default, 1 = login debug, 2 = rpc reply debug")
+                        help="increase verbose levevel: 0 = default, 1 = login debug, 2 = rpc reply debug, 3 = login and rpc reply debug")
 
         # ------------------------------------------------------------------------
         # Device level options
@@ -222,6 +222,8 @@ class netconifyCmdo(object):
             verbose = 1
         elif debug == 2: ## DEBUG RPC REPLY
              verbose = 2
+        elif debug == 3: ## DEBUG LOGIN and RPC REPLY
+             verbose = 3
 
         # ----------------------------------
         # handle password input if necessary
