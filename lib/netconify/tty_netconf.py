@@ -48,6 +48,8 @@ class tty_netconf(object):
             line = self._tty.read()
             if cmdo.verbose == 2:
                 print(line)  #enable to see received NETCONF xml
+            if cmdo.verbose == 3:
+                print(line)  #enable to see received NETCONF xml
             if line.startswith("<!--"):
                 break
         else:
@@ -187,6 +189,8 @@ class tty_netconf(object):
         while True:
             line = self._tty.read().strip()
             if cmdo.verbose ==  2:
+                print(line)  # enable to see received xml messages
+            if cmdo.verbose ==  3:
                 print(line)  # enable to see received xml messages
             if not line:
                 continue  # if we got nothin, go again
